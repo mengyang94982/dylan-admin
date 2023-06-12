@@ -1,5 +1,20 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue"
+// import App from "./App.vue"
+import AppLoading from "./components/common/app-loading.vue"
 
-createApp(App).mount('#app')
+import { setupAssets } from "./plugins"
+
+async function setupApp() {
+  // import assets: js、css
+  setupAssets()
+  const appLoading = createApp(AppLoading)
+  appLoading.mount("#appLoading")
+
+  // const app = createApp(App)
+
+  // appLoading.unmount()
+
+  // app.mount("#app")
+}
+
+setupApp()
