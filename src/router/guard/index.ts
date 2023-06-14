@@ -16,7 +16,10 @@ export function createRouterGuard(router: Router) {
   });
   router.afterEach((to) => {
     // 设置document title
-    useTitle(to.meta.i18nTitle ? t(to.meta.i18nTitle) : to.meta.title);
+    useTitle(
+      (to.meta.i18nTitle ? t(to.meta.i18nTitle) : to.meta.title) +
+        " - Dylan后台管理系统"
+    );
     // 结束 loadingBar
     window.$loadingBar?.finish();
   });
