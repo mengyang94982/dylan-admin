@@ -16,9 +16,15 @@ declare namespace PageRoute {
    * @translate 页面路由
    */
   type RouteKey =
+    | '403'
     | '404'
+    | '500'
+    | 'constant-page'
     | 'login'
     | 'not-found'
+    | 'dashboard'
+    | 'dashboard_analysis'
+    | 'dashboard_workbench'
     | 'document'
     | 'document_vue';
 
@@ -28,9 +34,14 @@ declare namespace PageRoute {
    */
   type LastDegreeRouteKey = Extract<
     RouteKey,
+    | '403'
     | '404'
+    | '500'
+    | 'constant-page'
     | 'login'
     | 'not-found'
+    | 'dashboard_analysis'
+    | 'dashboard_workbench'
     | 'document_vue'
   >;
 }

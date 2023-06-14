@@ -6,6 +6,6 @@ export function getLoginModuleRegExp() {
     "register",
     "reset-pwd",
     "bind-wechat",
-  ]
-  return modules.join("|")
+  ];
+  return modules.join("|");
 }

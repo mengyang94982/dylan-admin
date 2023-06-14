@@ -13,31 +13,32 @@
     </div>
     <h2 class="text-28px font-500 text-#646464">{{ title }}</h2>
   </div>
-  <div class=""></div>
 </template>
 
 <script setup lang="ts">
-import { useAppInfo } from "@/composables"
-import { localStg, getRgbOfColor } from "@/utils"
+import { useAppInfo } from "@/composables";
+import { localStg, getRgbOfColor } from "@/utils";
 
-import themeSettings from "@/settings/theme.json"
+import themeSettings from "@/settings/theme.json";
+
 const loadingClasses = [
   "left-0 top-0",
   "left-0 bottom-0 animate-delay-500",
   "right-0 top-0 animate-delay-1000",
   "right-0 bottom-0 animate-delay-1500",
-]
+];
 
-const { title } = useAppInfo()
+const { title } = useAppInfo();
 
 function addThemeColorCssVars() {
-  const defaultColor = themeSettings.themeColor
-  const themeColor = localStg.get("themeColor") || defaultColor
-  const { r, g, b } = getRgbOfColor(themeColor)
-  const cssVars = `--primary-color: ${r},${g},${b}`
-  document.documentElement.style.cssText = cssVars
+  const defaultColor = themeSettings.themeColor;
+  const themeColor = localStg.get("themeColor") || defaultColor;
+  const { r, g, b } = getRgbOfColor(themeColor);
+  const cssVars = `--primary-color: ${r},${g},${b}`;
+  document.documentElement.style.cssText = cssVars;
 }
-addThemeColorCssVars()
+
+addThemeColorCssVars();
 </script>
 
 <style lang="less" scoped></style>

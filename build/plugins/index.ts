@@ -1,9 +1,10 @@
-import type { PluginOption } from "vite"
-import unocss from "@unocss/vite"
-import vue from "@vitejs/plugin-vue"
-import unplugin from "./unplugin"
+import type { PluginOption } from "vite";
+import unocss from "@unocss/vite";
+import vue from "@vitejs/plugin-vue";
+import unplugin from "./unplugin";
+import mock from "./mock";
 
-import pageRoute from "@soybeanjs/vite-plugin-vue-page-route"
+import pageRoute from "@soybeanjs/vite-plugin-vue-page-route";
 
 /**
  * vite插件
@@ -13,10 +14,10 @@ import pageRoute from "@soybeanjs/vite-plugin-vue-page-route"
 export function setupVitePlugins(
   viteEnv: ImportMetaEnv
 ): (PluginOption | PluginOption[])[] {
-  const plugins = [vue({}), ...unplugin(viteEnv), unocss()]
+  const plugins = [vue({}), ...unplugin(viteEnv), unocss(), mock(viteEnv)];
 
   if (viteEnv.VITE_SOYBEAN_ROUTE_PLUGIN === "Y") {
-    plugins.push(pageRoute())
+    plugins.push(pageRoute());
   }
-  return plugins
+  return plugins;
 }

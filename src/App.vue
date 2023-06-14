@@ -16,9 +16,9 @@ import { zhCN, dateZhCN } from "naive-ui"
 
 import { subscribeStore, useThemeStore } from "@/store"
 import { useGlobalEvents } from "@/composables"
-import { useRouter } from "vue-router"
-const router = useRouter()
-console.log(router.getRoutes())
+// import { useRouter } from "vue-router"
+// const router = useRouter()
+// console.log(router.getRoutes(), "app")
 
 const theme = useThemeStore()
 
